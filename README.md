@@ -2,6 +2,8 @@
 
 웹프로그래밍 수행평가 – 롤 챔피언 도감 사이트
 
+사이트: https://wnstn114567-lab.github.io/league-down/
+
 | 폴더 | 설명 |
 |---|---|
 | [`original/`](original/) | 기존 버전 – 챔피언 173명 |

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>협곡도감 RIFT DEX</title>
+    <link rel="icon" href="original/img/favicon.svg">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&display=swap">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        body {
+            background: #010a13;
+            color: #a09b8c;
+            font-family: "Pretendard", sans-serif;
+        }
+
+        .inner {
+            max-width: 960px;
+            margin: auto;
+            padding: 80px 16px;
+            text-align: center;
+        }
+
+        .label {
+            font-family: "Cinzel", serif;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.24em;
+            color: #c8aa6e;
+        }
+
+        h1 {
+            margin-top: 10px;
+            font-family: "Cinzel", serif;
+            font-size: 44px;
+            color: #f0e6d2;
+        }
+
+        .desc {
+            margin-top: 12px;
+        }
+
+        .ver {
+            display: flex;
+            gap: 24px;
+            margin-top: 48px;
+            text-align: left;
+        }
+
+        .ver a {
+            position: relative;
+            flex: 1;
+            display: block;
+            height: 320px;
+            border: 1px solid rgba(200, 170, 110, 0.25);
+            background-size: cover;
+            background-position: center 25%;
+            transition: border-color 0.2s;
+        }
+
+        .ver a:hover {
+            border-color: #c8aa6e;
+        }
+
+        .ver .original {
+            background-image: url(https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/characters/ahri/skins/base/images/ahri_splash_centered_0.jpg);
+        }
+
+        .ver .easy {
+            background-image: url(https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/characters/garen/skins/base/images/garen_splash_centered_0.jpg);
+        }
+
+        .ver .txt {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: 60px 28px 28px;
+            background: linear-gradient(0deg, rgba(1, 10, 19, 0.95) 40%, rgba(1, 10, 19, 0));
+        }
+
+        .ver h2 {
+            margin-top: 6px;
+            font-size: 26px;
+            color: #f0e6d2;
+        }
+
+        .ver p {
+            margin-top: 6px;
+            font-size: 15px;
+        }
+
+        .ver .more {
+            margin-top: 14px;
+            font-weight: 600;
+            color: #0ac8b9;
+        }
+
+        .riot {
+            margin-top: 48px;
+            font-size: 13px;
+            color: #5b5a56;
+        }
+
+        @media (max-width: 640px) {
+            .ver {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="inner">
+        <p class="label">WEB PROGRAMMING</p>
+        <h1>RIFT DEX</h1>
+        <p class="desc">협곡도감 – 웹프로그래밍 수행평가. 보고 싶은 버전을 고르세요.</p>
+        <div class="ver">
+            <a href="original/" class="original">
+                <div class="txt">
+                    <p class="label">ORIGINAL</p>
+                    <h2>기존 버전</h2>
+                    <p>챔피언 173명 전원 수록</p>
+                    <p class="more">들어가기 →</p>
+                </div>
+            </a>
+            <a href="easy/" class="easy">
+                <div class="txt">
+                    <p class="label">EDITED</p>
+                    <h2>수정 버전</h2>
+                    <p>라인별 근본 챔피언 4명씩, 총 20명</p>
+                    <p class="more">들어가기 →</p>
+                </div>
+            </a>
+        </div>
+        <p class="riot">학생 과제용 팬사이트이며 Riot Games와 관련이 없습니다.</p>
+    </div>
+</body>
+</html>
