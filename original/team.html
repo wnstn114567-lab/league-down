@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>조합 만들기 | 협곡도감 RIFT DEX</title>
+    <link rel="icon" href="img/favicon.svg">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&display=swap">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/sub.css">
+    <script src="js/jquery-1.12.3.js" defer></script>
+    <script src="js/data.js" defer></script>
+    <script src="js/team.js" defer></script>
+</head>
+<body>
+    <div class="wrap">
+        <div class="inner">
+            <header id="header">
+                <h1>
+                    <a href="index.html">
+                        <span class="mark"></span>
+                        <span class="logo">RIFT DEX</span>
+                        <em>협곡도감</em>
+                    </a>
+                </h1>
+                <nav id="nav">
+                    <ul>
+                        <li><a href="champion.html">챔피언</a></li>
+                        <li><a href="tier.html">티어표</a></li>
+                        <li><a href="team.html" class="on">조합추천</a></li>
+                        <li><a href="guide.html">공략</a></li>
+                    </ul>
+                </nav>
+            </header>
+            <section class="sub-visual team">
+                <p class="label">TEAM BUILDER</p>
+                <h2>조합 만들기</h2>
+                <p class="desc">포지션마다 한 명씩 골라보세요. 라이엇 공식 플레이 스타일 수치로 조합을 채점해요.</p>
+            </section>
+            <div class="team-top">
+                <div class="preset">
+                    <span>예시 조합</span>
+                    <button data-team="Malphite,Amumu,Yasuo,MissFortune,Rell">한타 조합</button>
+                    <button data-team="Darius,Vi,Ahri,Kaisa,Nautilus">돌진 조합</button>
+                    <button data-team="Gnar,Elise,Zoe,Caitlyn,Karma">포킹 조합</button>
+                </div>
+                <button class="reset">초기화</button>
+            </div>
+            <ul class="slots">
+                <li class="on">
+                    <p class="slot-pos"><i class="pos top"></i>탑</p>
+                    <div class="face"></div>
+                    <strong>선택하세요</strong>
+                    <button class="del">✕</button>
+                </li>
+                <li>
+                    <p class="slot-pos"><i class="pos jungle"></i>정글</p>
+                    <div class="face"></div>
+                    <strong>선택하세요</strong>
+                    <button class="del">✕</button>
+                </li>
+                <li>
+                    <p class="slot-pos"><i class="pos mid"></i>미드</p>
+                    <div class="face"></div>
+                    <strong>선택하세요</strong>
+                    <button class="del">✕</button>
+                </li>
+                <li>
+                    <p class="slot-pos"><i class="pos adc"></i>원딜</p>
+                    <div class="face"></div>
+                    <strong>선택하세요</strong>
+                    <button class="del">✕</button>
+                </li>
+                <li>
+                    <p class="slot-pos"><i class="pos sup"></i>서폿</p>
+                    <div class="face"></div>
+                    <strong>선택하세요</strong>
+                    <button class="del">✕</button>
+                </li>
+            </ul>
+            <div class="team-body">
+                <div class="picker">
+                    <div class="picker-head">
+                        <ul class="pos-btn">
+                            <li><button data-pos="all"><i class="pos all"></i>전체</button></li>
+                            <li><button class="on" data-pos="top"><i class="pos top"></i>탑</button></li>
+                            <li><button data-pos="jungle"><i class="pos jungle"></i>정글</button></li>
+                            <li><button data-pos="mid"><i class="pos mid"></i>미드</button></li>
+                            <li><button data-pos="adc"><i class="pos adc"></i>원딜</button></li>
+                            <li><button data-pos="sup"><i class="pos sup"></i>서폿</button></li>
+                        </ul>
+                        <div class="search">
+                            <input type="text" id="search" placeholder="챔피언 이름 검색">
+                        </div>
+                    </div>
+                    <ul class="picker-list"></ul>
+                </div>
+                <div class="result">
+                    <p class="label">ANALYSIS</p>
+                    <div class="score">
+                        <strong>--</strong><span>/ 100</span>
+                    </div>
+                    <p class="verdict">5명을 모두 고르면 점수가 나와요</p>
+                    <div class="dmg-bar">
+                        <p><span class="ad-txt">AD 0</span><span class="ap-txt">AP 0</span></p>
+                        <div class="bar"><i class="ad"></i><i class="ap"></i></div>
+                    </div>
+                    <ul class="meters">
+                        <li><span>앞라인</span><div class="bar"><i></i></div><em>0</em></li>
+                        <li><span>CC</span><div class="bar"><i></i></div><em>0</em></li>
+                        <li><span>딜량</span><div class="bar"><i></i></div><em>0</em></li>
+                        <li><span>기동성</span><div class="bar"><i></i></div><em>0</em></li>
+                    </ul>
+                    <ul class="feedback"></ul>
+                </div>
+            </div>
+            <footer id="footer">
+                <p class="flogo">RIFT DEX</p>
+                <div>
+                    <ul class="fmenu">
+                        <li><a href="#">사이트 소개</a></li>
+                        <li><a href="#">이용약관</a></li>
+                        <li><a href="#">개인정보처리방침</a></li>
+                        <li><a href="#">문의하기</a></li>
+                    </ul>
+                    <p class="fcopy">COPYRIGHT &copy; 2026 RIFT DEX. All Rights Reserved.</p>
+                    <p class="riot">본 사이트는 학생 과제용 팬사이트이며 Riot Games와 관련이 없습니다. League of Legends 및 관련 이미지의 권리는 Riot Games에 있습니다.</p>
+                </div>
+            </footer>
+        </div>
+    </div><!--//wrap-->
+</body>
+</html>

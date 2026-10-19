@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>챔피언 | 협곡도감</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/jquery-1.12.3.js" defer></script>
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+    <div class="wrap">
+        <div class="inner">
+            <header id="header">
+                <h1>
+                    <a href="index.html">RIFT DEX <span>협곡도감</span></a>
+                </h1>
+                <nav id="nav">
+                    <ul>
+                        <li>
+                            <a href="champion.html">챔피언</a>
+                            <ul class="sub">
+                                <li><a href="champion.html#top">탑</a></li>
+                                <li><a href="champion.html#jungle">정글</a></li>
+                                <li><a href="champion.html#mid">미드</a></li>
+                                <li><a href="champion.html#adc">원딜</a></li>
+                                <li><a href="champion.html#sup">서폿</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">게임가이드</a>
+                            <ul class="sub">
+                                <li><a href="#">라인 설명</a></li>
+                                <li><a href="#">용어 사전</a></li>
+                                <li><a href="#">초보 팁</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">소식</a>
+                            <ul class="sub">
+                                <li><a href="#">패치노트</a></li>
+                                <li><a href="#">스킨</a></li>
+                                <li><a href="#">이벤트</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">커뮤니티</a>
+                            <ul class="sub">
+                                <li><a href="#">공지사항</a></li>
+                                <li><a href="#">자유게시판</a></li>
+                                <li><a href="#">문의하기</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="menuBg"></div>
+            </header>
+            <section class="title">
+                <h2>챔피언</h2>
+                <p>라인별로 근본 챔피언 4명씩, 총 20명을 골랐어요. 카드를 누르면 자세히 볼 수 있어요.</p>
+            </section>
+            <ul class="lane">
+                <li><button class="on" data-lane="all">전체</button></li>
+                <li><button data-lane="top">탑</button></li>
+                <li><button data-lane="jungle">정글</button></li>
+                <li><button data-lane="mid">미드</button></li>
+                <li><button data-lane="adc">원딜</button></li>
+                <li><button data-lane="sup">서폿</button></li>
+            </ul>
+            <div class="champ">
+                <ul>
+                    <!-- 탑 -->
+                    <li class="top">
+                        <a href="#" class="pop"
+                            data-label="탑 · 난이도 쉬움"
+                            data-title="가렌 - 데마시아의 힘"
+                            data-img="img/splash/garen.jpg"
+                            data-text="스킬이 단순하고 튼튼해서 입문용 1순위. 빙글빙글 돌면서 때리면 끝!<br>궁극기: 데마시아의 정의">
+                            <img src="img/icon/garen.png" alt="가렌">
+                            <strong>가렌</strong>
+                            <em>데마시아의 힘</em>
+                            <span>탑 · 쉬움</span>
+                        </a>
+                    </li>
+                    <li class="top">
+                        <a href="#" class="pop"
+                            data-label="탑 · 난이도 보통"
+                            data-title="다리우스 - 녹서스의 실력자"
+                            data-img="img/splash/darius.jpg"
+                            data-text="도끼로 출혈을 쌓고, 궁극기로 마무리하는 싸움꾼.<br>궁극기: 녹서스의 단두대">
+                            <img src="img/icon/darius.png" alt="다리우스">
+                            <strong>다리우스</strong>
+                            <em>녹서스의 실력자</em>
+                            <span>탑 · 보통</span>
+                        </a>
+                    </li>
+                    <li class="top">
+                        <a href="#" class="pop"
+                            data-label="탑 · 난이도 쉬움"
+                            data-title="말파이트 - 거석의 파편"
+                            data-img="img/splash/malphite.jpg"
+                            data-text="궁극기 한 방으로 적 여러 명을 띄우는 바위 탱커.<br>궁극기: 멈출 수 없는 힘">
+                            <img src="img/icon/malphite.png" alt="말파이트">
+                            <strong>말파이트</strong>
+                            <em>거석의 파편</em>
+                            <span>탑 · 쉬움</span>
+                        </a>
+                    </li>
+                    <li class="top">
+                        <a href="#" class="pop"
+                            data-label="탑 · 난이도 쉬움"
+                            data-title="나서스 - 사막의 관리자"
+                            data-img="img/splash/nasus.jpg"
+                            data-text="Q로 미니언을 잡을수록 계속 강해지는 성장형 챔피언.<br>궁극기: 사막의 분노">
+                            <img src="img/icon/nasus.png" alt="나서스">
+                            <strong>나서스</strong>
+                            <em>사막의 관리자</em>
+                            <span>탑 · 쉬움</span>
+                        </a>
+                    </li>
+                    <!-- 정글 -->
+                    <li class="jungle">
+                        <a href="#" class="pop"
+                            data-label="정글 · 난이도 어려움"
+                            data-title="리 신 - 눈먼 수도승"
+                            data-img="img/splash/leesin.jpg"
+                            data-text="발차기로 적을 날려 보내는 기술형 정글러. 어렵지만 멋있다!<br>궁극기: 용의 분노">
+                            <img src="img/icon/leesin.png" alt="리 신">
+                            <strong>리 신</strong>
+                            <em>눈먼 수도승</em>
+                            <span>정글 · 어려움</span>
+                        </a>
+                    </li>
+                    <li class="jungle">
+                        <a href="#" class="pop"
+                            data-label="정글 · 난이도 쉬움"
+                            data-title="마스터 이 - 우주 검사"
+                            data-img="img/splash/masteryi.jpg"
+                            data-text="궁극기를 켜고 달려가서 평타로 다 베어버리는 정글러.<br>궁극기: 최후의 전사">
+                            <img src="img/icon/masteryi.png" alt="마스터 이">
+                            <strong>마스터 이</strong>
+                            <em>우주 검사</em>
+                            <span>정글 · 쉬움</span>
+                        </a>
+                    </li>
+                    <li class="jungle">
+                        <a href="#" class="pop"
+                            data-label="정글 · 난이도 쉬움"
+                            data-title="워윅 - 자운의 고삐 풀린 분노"
+                            data-img="img/splash/warwick.jpg"
+                            data-text="피 냄새를 맡고 달려가 궁극기로 적을 붙잡는 늑대인간.<br>궁극기: 무한의 구속">
+                            <img src="img/icon/warwick.png" alt="워윅">
+                            <strong>워윅</strong>
+                            <em>자운의 고삐 풀린 분노</em>
+                            <span>정글 · 쉬움</span>
+                        </a>
+                    </li>
+                    <li class="jungle">
+                        <a href="#" class="pop"
+                            data-label="정글 · 난이도 쉬움"
+                            data-title="아무무 - 슬픈 미라"
+                            data-img="img/splash/amumu.jpg"
+                            data-text="붕대로 날아가서 궁극기로 적 전체를 묶는 한타 정글러.<br>궁극기: 슬픈 미라의 저주">
+                            <img src="img/icon/amumu.png" alt="아무무">
+                            <strong>아무무</strong>
+                            <em>슬픈 미라</em>
+                            <span>정글 · 쉬움</span>
+                        </a>
+                    </li>
+                    <!-- 미드 -->
+                    <li class="mid">
+                        <a href="#" class="pop"
+                            data-label="미드 · 난이도 보통"
+                            data-title="아리 - 구미호"
+                            data-img="img/splash/ahri.jpg"
+                            data-text="매혹(E)으로 적을 끌어오고, 궁극기로 세 번 대시하는 구미호.<br>궁극기: 혼령 질주">
+                            <img src="img/icon/ahri.png" alt="아리">
+                            <strong>아리</strong>
+                            <em>구미호</em>
+                            <span>미드 · 보통</span>
+                        </a>
+                    </li>
+                    <li class="mid">
+                        <a href="#" class="pop"
+                            data-label="미드 · 난이도 어려움"
+                            data-title="제드 - 그림자의 주인"
+                            data-img="img/splash/zed.jpg"
+                            data-text="그림자 분신으로 순식간에 적을 암살하는 닌자.<br>궁극기: 죽음의 표식">
+                            <img src="img/icon/zed.png" alt="제드">
+                            <strong>제드</strong>
+                            <em>그림자의 주인</em>
+                            <span>미드 · 어려움</span>
+                        </a>
+                    </li>
+                    <li class="mid">
+                        <a href="#" class="pop"
+                            data-label="미드 · 난이도 쉬움"
+                            data-title="럭스 - 광명의 소녀"
+                            data-img="img/splash/lux.jpg"
+                            data-text="속박(Q)으로 묶고, 긴 레이저 궁극기로 멀리서 마무리.<br>궁극기: 최후의 섬광">
+                            <img src="img/icon/lux.png" alt="럭스">
+                            <strong>럭스</strong>
+                            <em>광명의 소녀</em>
+                            <span>미드 · 쉬움</span>
+                        </a>
+                    </li>
+                    <li class="mid">
+                        <a href="#" class="pop"
+                            data-label="미드 · 난이도 쉬움"
+                            data-title="애니 - 어둠의 아이"
+                            data-img="img/splash/annie.jpg"
+                            data-text="곰 인형 티버를 소환해서 한타를 여는 쉬운 마법사.<br>궁극기: 소환: 티버">
+                            <img src="img/icon/annie.png" alt="애니">
+                            <strong>애니</strong>
+                            <em>어둠의 아이</em>
+                            <span>미드 · 쉬움</span>
+                        </a>
+                    </li>
+                    <!-- 원딜 -->
+                    <li class="adc">
+                        <a href="#" class="pop"
+                            data-label="원딜 · 난이도 쉬움"
+                            data-title="애쉬 - 서리 궁수"
+                            data-img="img/splash/ashe.jpg"
+                            data-text="평타마다 적을 느리게 만들고, 궁극기 화살로 기절시키는 궁수.<br>궁극기: 마법의 수정화살">
+                            <img src="img/icon/ashe.png" alt="애쉬">
+                            <strong>애쉬</strong>
+                            <em>서리 궁수</em>
+                            <span>원딜 · 쉬움</span>
+                        </a>
+                    </li>
+                    <li class="adc">
+                        <a href="#" class="pop"
+                            data-label="원딜 · 난이도 어려움"
+                            data-title="이즈리얼 - 무모한 탐험가"
+                            data-img="img/splash/ezreal.jpg"
+                            data-text="순간이동(E)으로 피하면서 Q를 맞히는 스킬샷 원딜.<br>궁극기: 정조준 일격">
+                            <img src="img/icon/ezreal.png" alt="이즈리얼">
+                            <strong>이즈리얼</strong>
+                            <em>무모한 탐험가</em>
+                            <span>원딜 · 어려움</span>
+                        </a>
+                    </li>
+                    <li class="adc">
+                        <a href="#" class="pop"
+                            data-label="원딜 · 난이도 보통"
+                            data-title="징크스 - 난폭한 말괄량이"
+                            data-img="img/splash/jinx.jpg"
+                            data-text="적을 잡을수록 빨라지는 로켓 원딜.<br>궁극기: 초강력 초토화 로켓!">
+                            <img src="img/icon/jinx.png" alt="징크스">
+                            <strong>징크스</strong>
+                            <em>난폭한 말괄량이</em>
+                            <span>원딜 · 보통</span>
+                        </a>
+                    </li>
+                    <li class="adc">
+                        <a href="#" class="pop"
+                            data-label="원딜 · 난이도 쉬움"
+                            data-title="케이틀린 - 필트오버의 보안관"
+                            data-img="img/splash/caitlyn.jpg"
+                            data-text="사거리가 길어서 라인전이 편한 저격수.<br>궁극기: 비장의 한 발">
+                            <img src="img/icon/caitlyn.png" alt="케이틀린">
+                            <strong>케이틀린</strong>
+                            <em>필트오버의 보안관</em>
+                            <span>원딜 · 쉬움</span>
+                        </a>
+                    </li>
+                    <!-- 서폿 -->
+                    <li class="sup">
+                        <a href="#" class="pop"
+                            data-label="서폿 · 난이도 어려움"
+                            data-title="쓰레쉬 - 지옥의 간수"
+                            data-img="img/splash/thresh.jpg"
+                            data-text="사슬(Q)로 적을 끌고, 랜턴(W)으로 아군을 구해주는 서포터.<br>궁극기: 영혼 감옥">
+                            <img src="img/icon/thresh.png" alt="쓰레쉬">
+                            <strong>쓰레쉬</strong>
+                            <em>지옥의 간수</em>
+                            <span>서폿 · 어려움</span>
+                        </a>
+                    </li>
+                    <li class="sup">
+                        <a href="#" class="pop"
+                            data-label="서폿 · 난이도 쉬움"
+                            data-title="블리츠크랭크 - 거대 증기 골렘"
+                            data-img="img/splash/blitzcrank.jpg"
+                            data-text="로켓 손(Q)으로 적을 끌어오는 그랩 서포터.<br>궁극기: 정전기장">
+                            <img src="img/icon/blitzcrank.png" alt="블리츠크랭크">
+                            <strong>블리츠크랭크</strong>
+                            <em>거대 증기 골렘</em>
+                            <span>서폿 · 쉬움</span>
+                        </a>
+                    </li>
+                    <li class="sup">
+                        <a href="#" class="pop"
+                            data-label="서폿 · 난이도 쉬움"
+                            data-title="소나 - 현의 명인"
+                            data-img="img/splash/sona.jpg"
+                            data-text="아군을 회복시키고 빠르게 해주는 음악가 서포터.<br>궁극기: 크레센도">
+                            <img src="img/icon/sona.png" alt="소나">
+                            <strong>소나</strong>
+                            <em>현의 명인</em>
+                            <span>서폿 · 쉬움</span>
+                        </a>
+                    </li>
+                    <li class="sup">
+                        <a href="#" class="pop"
+                            data-label="서폿 · 난이도 쉬움"
+                            data-title="레오나 - 여명의 빛"
+                            data-img="img/splash/leona.jpg"
+                            data-text="앞장서서 적을 기절시키는 방패 든 탱커 서포터.<br>궁극기: 흑점 폭발">
+                            <img src="img/icon/leona.png" alt="레오나">
+                            <strong>레오나</strong>
+                            <em>여명의 빛</em>
+                            <span>서폿 · 쉬움</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <footer id="footer">
+                <p class="flogo">RIFT DEX</p>
+                <div>
+                    <ul class="fmenu">
+                        <li><a href="#">사이트 소개</a></li>
+                        <li><a href="#">이용약관</a></li>
+                        <li><a href="#">개인정보처리방침</a></li>
+                        <li><a href="#">문의하기</a></li>
+                    </ul>
+                    <p class="fcopy">
+                        COPYRIGHT &copy; 2026 RIFT DEX. All Rights Reserved.<br>
+                        학생 과제용 팬사이트이며 Riot Games와 관련이 없습니다.
+                    </p>
+                </div>
+            </footer>
+        </div>
+        <div id="popup" class="popup">
+            <div class="popcon">
+                <p class="img">
+                    <img src="" alt="">
+                </p>
+                <div class="text">
+                    <p class="label"></p>
+                    <h2></h2>
+                    <p class="desc"></p>
+                </div>
+                <div class="close">
+                    <button>✕</button>
+                </div>
+            </div>
+        </div>
+    </div><!--//wrap-->
+</body>
+</html>
