@@ -1,10 +1,18 @@
 @charset "utf-8";
 
 /* =========================
-   색상 메모 (롤 느낌)
-   배경 #010a13 / 패널 #0a1428 / 골드 #c8aa6e
-   밝은 글씨 #f0e6d2 / 기본 글씨 #a09b8c
+   색상 변수 (롤 클라이언트 톤)
 ========================= */
+:root {
+    --bg: #010a13;          /* 배경 딥네이비 */
+    --panel: #0a1428;       /* 패널 */
+    --line: rgba(200, 170, 110, 0.18);  /* 연한 골드 구분선 */
+    --gold-d: #785a28;      /* 테두리 골드 */
+    --gold: #c8aa6e;        /* 포인트 골드 */
+    --gold-l: #f0e6d2;      /* 밝은 글씨 */
+    --text: #a09b8c;        /* 기본 글씨 */
+    --teal: #0ac8b9;        /* 강조 청록 (아껴 쓰기) */
+}
 
 /* =========================
    reset
@@ -39,9 +47,12 @@ button {
    layout
 ========================= */
 body {
-    background: #010a13;
-    color: #a09b8c;
-    font-family: "Malgun Gothic", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Pretendard", sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    letter-spacing: -0.01em;
 }
 
 .wrap {
@@ -53,156 +64,233 @@ body {
     margin: auto;
 }
 
+/* 영문 작은 라벨 (CHAMPIONS 같은 것) */
+.label {
+    font-family: "Cinzel", serif;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 16px;
+    letter-spacing: 0.24em;
+    color: var(--gold);
+    margin-bottom: 8px;
+}
+
+/* 모서리를 비스듬히 자른 버튼: 바깥(a)이 골드 테두리, 안쪽(span)이 배경 */
+.btn {
+    display: inline-block;
+    padding: 1px;
+    background: var(--gold);
+    clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+}
+
+.btn span {
+    display: block;
+    padding: 12px 30px;
+    background: var(--bg);
+    color: var(--gold-l);
+    font-size: 14px;
+    font-weight: 600;
+    clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+    transition: background 0.2s;
+}
+
+.btn:hover span {
+    background: #1e2328;
+}
+
 /* =========================
    header
 ========================= */
-header {
-    position: relative;
-    height: 100px;
-    padding-top: 40px;
-    padding-left: 10px;
-    border-bottom: 1px solid #333;
-}
-
-header h1 a {
-    color: #f0e6d2;
-    font-size: 26px;
-}
-
-header h1 span {
-    color: #c8aa6e;
-    font-size: 15px;
-}
-
-/* nav */
-nav {
-    position: absolute;
-    top: 30px;
-    right: 0;
-    z-index: 10;
-}
-
-nav > ul {
+#header {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 88px;
+    border-bottom: 1px solid var(--line);
 }
 
-nav > ul > li > a {
+#header h1 a {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+#header h1 .mark {
+    width: 14px;
+    height: 14px;
+    border: 2px solid var(--gold);
+    transform: rotate(45deg);
+}
+
+#header h1 .logo {
+    font-family: "Cinzel", serif;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--gold-l);
+}
+
+#header h1 em {
+    padding-left: 14px;
+    border-left: 1px solid var(--line);
+    font-style: normal;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text);
+}
+
+/* nav (1단 메뉴 4개) */
+#nav ul {
+    display: flex;
+    gap: 44px;
+}
+
+#nav a {
+    position: relative;
     display: block;
-    width: 140px;
-    padding: 10px;
-    color: #f0e6d2;
-    font-weight: bold;
-    text-align: center;
+    line-height: 87px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    transition: color 0.2s;
 }
 
-nav > ul > li:hover > a {
-    background: #c8aa6e;
-    color: #010a13;
-}
-
-/* sub menu */
-.sub {
-    display: none;
-    padding-top: 30px;
-}
-
-.sub li a {
-    display: block;
-    padding: 5px;
-    color: #f0e6d2;
-    font-size: 14px;
-    text-align: center;
-}
-
-.sub li a:hover {
-    color: #c8aa6e;
-}
-
-/* menu background */
-.menuBg {
-    display: none;
+#nav a::after {
+    content: "";
     position: absolute;
-    top: 100px;
     left: 0;
-    z-index: 5;
-    width: 100%;
-    height: 170px;
-    background: rgba(0, 0, 0, 0.9);
+    right: 0;
+    bottom: -1px;
+    height: 2px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transition: transform 0.25s;
+}
+
+#nav a:hover,
+#nav a.on {
+    color: var(--gold-l);
+}
+
+#nav a:hover::after,
+#nav a.on::after {
+    transform: scaleX(1);
 }
 
 /* =========================
    slide
 ========================= */
 .slide {
-    height: 400px;
-    margin-top: 30px;
+    position: relative;
+    height: 460px;
+    margin-top: 32px;
     overflow: hidden;
 }
 
 .slide ul {
     display: flex;
     width: 3600px;
-    height: 400px;
+    height: 100%;
 }
 
 .slide ul li {
     position: relative;
     width: 1200px;
-    height: 400px;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
-.slide ul li a {
-    display: block;
-    width: 100%;
-    height: 100%;
+/* 글씨가 잘 읽히도록 왼쪽과 아래를 어둡게 */
+.slide ul li::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(90deg, rgba(1, 10, 19, 0.95) 0%, rgba(1, 10, 19, 0.7) 35%, rgba(1, 10, 19, 0) 65%),
+        linear-gradient(0deg, rgba(1, 10, 19, 0.8) 0%, rgba(1, 10, 19, 0) 30%);
 }
 
 .slide ul li.s1 {
-    background: url(../img/s1.jpg) no-repeat center 20% / cover;
+    background-image: url(https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/characters/ahri/skins/base/images/ahri_splash_uncentered_0.jpg);
+    background-position: center 20%;
 }
 
 .slide ul li.s2 {
-    background: url(../img/s2.jpg) no-repeat center 30% / cover;
+    background-image: url(https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/characters/jinx/skins/base/images/jinx_splash_uncentered_0.jpg);
+    background-position: center 30%;
 }
 
 .slide ul li.s3 {
-    background: url(../img/s3.jpg) no-repeat center 25% / cover;
+    background-image: url(https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/characters/leona/skins/base/images/leona_splash_uncentered_0.jpg);
+    background-position: center 25%;
 }
 
-.slide ul li h2 {
+.slide .txt {
     position: absolute;
-    left: 50px;
-    bottom: 50px;
-    padding: 20px 30px;
-    background: rgba(1, 10, 19, 0.85);
-    border-left: 5px solid #c8aa6e;
-    color: #f0e6d2;
-    font-size: 26px;
+    top: 50%;
+    left: 64px;
+    z-index: 1;
+    width: 480px;
+    transform: translateY(-50%);
 }
 
-.slide ul li h2 span {
-    display: block;
-    margin-bottom: 5px;
-    color: #c8aa6e;
-    font-size: 16px;
+.slide h2 {
+    font-size: 40px;
+    font-weight: 800;
+    line-height: 1.3;
+    letter-spacing: -0.03em;
+    color: var(--gold-l);
+}
+
+.slide .desc {
+    margin-top: 16px;
+    font-size: 15px;
+}
+
+.slide .btn {
+    margin-top: 28px;
+}
+
+/* 슬라이드 위치 표시 막대 */
+.pager {
+    position: absolute;
+    left: 64px;
+    bottom: 36px;
+    z-index: 1;
+    display: flex;
+    gap: 8px;
+}
+
+.pager li {
+    width: 28px;
+    height: 2px;
+    background: rgba(240, 230, 210, 0.25);
+    transition: background 0.3s;
+}
+
+.pager li.on {
+    background: var(--gold);
 }
 
 /* =========================
-   contents
+   contents (탭 / 배너 / 바로가기)
 ========================= */
 .contents {
     display: flex;
-    gap: 30px;
-    margin: 50px 0;
+    gap: 32px;
+    margin: 64px 0 80px;
 }
 
 .contents article {
-    width: 380px;
+    flex: 1;
 }
 
 .contents h2 {
-    color: #f0e6d2;
     font-size: 20px;
+    font-weight: 700;
+    line-height: 30px;
+    color: var(--gold-l);
 }
 
 /* =========================
@@ -210,220 +298,286 @@ nav > ul > li:hover > a {
 ========================= */
 .tab {
     position: relative;
-    height: 260px;
+    height: 302px;
 }
 
 .tabmenu {
     display: flex;
-    gap: 20px;
+    gap: 24px;
 }
 
 .tabmenu > li > h2 > a {
     color: #5b5a56;
+    transition: color 0.2s;
+}
+
+.tabmenu > li > h2 > a:hover {
+    color: var(--text);
 }
 
 .tabmenu > li.on > h2 > a {
-    color: #f0e6d2;
+    color: var(--gold-l);
 }
 
 .tabcon {
     position: absolute;
-    top: 45px;
+    top: 72px;
     left: 0;
     width: 100%;
 }
 
-/* notice (패치노트) */
+/* 패치노트 */
 .notice ul {
-    border-top: 1px solid #333;
+    border-top: 1px solid var(--line);
 }
 
 .notice ul li {
-    border-bottom: 1px solid #333;
+    border-bottom: 1px solid var(--line);
 }
 
 .notice ul li a {
-    display: block;
-    position: relative;
-    padding: 14px 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    height: 56.25px;
 }
 
-.notice ul li p {
-    width: 300px;
-    color: #f0e6d2;
+.notice .tag {
+    flex: none;
+    width: 52px;
+    border: 1px solid var(--gold-d);
+    font-size: 12px;
+    line-height: 22px;
+    text-align: center;
+    color: var(--gold);
+}
+
+.notice p {
+    flex: 1;
+    font-size: 14px;
+    color: var(--gold-l);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    transition: color 0.2s;
+}
+
+.notice .date {
+    font-size: 13px;
 }
 
 .notice ul li a:hover p {
-    color: #c8aa6e;
+    color: var(--gold);
 }
 
-.notice ul li span {
-    position: absolute;
-    top: 14px;
-    right: 0;
-    font-size: 14px;
-}
-
-/* gallery (스킨) */
+/* 스킨 갤러리 */
 .gall {
     display: none;
 }
 
 .gall ul {
     display: flex;
-    gap: 10px;
+    gap: 8px;
+}
+
+.gall ul li {
+    flex: 1;
+}
+
+.gall ul li a {
+    display: block;
+    border: 1px solid var(--line);
+    transition: border-color 0.2s;
 }
 
 .gall ul li img {
-    width: 120px;
-    height: 200px;
+    width: 100%;
+    height: 196px;
     object-fit: cover;
-    border: 1px solid #333;
 }
 
-.gall ul li a:hover img {
-    border-color: #c8aa6e;
+.gall ul li span {
+    display: block;
+    padding: 6px 10px;
+    font-size: 12px;
+    color: var(--gold-l);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.gall ul li a:hover {
+    border-color: var(--gold);
 }
 
 /* =========================
    banner
 ========================= */
-.banner h2 {
-    margin-bottom: 15px;
-}
-
-.banner a {
+.banner > a {
+    position: relative;
     display: block;
-    height: 210px;
-    background: url(../img/splash/thresh.jpg) center 30% / cover;
-    border: 1px solid #333;
+    height: 230px;
+    margin-top: 18px;
+    border: 1px solid var(--line);
+    background: url(https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/characters/thresh/skins/base/images/thresh_splash_centered_0.jpg) center 30% / cover;
+    transition: border-color 0.2s;
 }
 
-.banner a:hover {
-    border-color: #c8aa6e;
+.banner > a::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(0deg, rgba(1, 10, 19, 0.95) 20%, rgba(1, 10, 19, 0.2) 100%);
 }
 
-.banner div {
-    height: 100%;
-    padding: 25px;
-    background: rgba(1, 10, 19, 0.7);
-}
-
-.banner div h3 {
-    margin-bottom: 10px;
-    color: #f0e6d2;
-    font-size: 22px;
-}
-
-.banner p {
-    color: #f0e6d2;
-    line-height: 1.6;
+.banner > a:hover {
+    border-color: var(--gold);
 }
 
 .banner .txt {
-    margin-top: 20px;
-    color: #0ac8b9;
-    font-weight: bold;
+    position: absolute;
+    left: 24px;
+    right: 24px;
+    bottom: 22px;
+}
+
+.banner h3 {
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 1.4;
+    color: var(--gold-l);
+}
+
+.banner .txt p {
+    margin-top: 6px;
+    font-size: 14px;
+}
+
+.banner .txt .more {
+    margin-top: 12px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--teal);
 }
 
 /* =========================
    go (바로가기)
 ========================= */
-.go h2 {
-    margin-bottom: 15px;
+.go ul {
+    margin-top: 18px;
 }
 
-.go ul li {
-    margin-bottom: 10px;
+.go ul li + li {
+    margin-top: 10px;
 }
 
 .go ul li a {
+    position: relative;
     display: flex;
     align-items: center;
-    gap: 15px;
-    height: 63px;
-    padding: 0 10px;
-    background: #0a1428;
-    border: 1px solid #333;
+    gap: 16px;
+    height: 70px;
+    padding: 0 12px;
+    border: 1px solid var(--line);
+    background: var(--panel);
+    transition: border-color 0.2s;
 }
 
-.go ul li a:hover {
-    border-color: #c8aa6e;
+.go ul li a::after {
+    content: "›";
+    position: absolute;
+    right: 18px;
+    font-size: 22px;
+    color: var(--gold-d);
+    transition: color 0.2s;
 }
 
 .go ul li p {
-    width: 45px;
-    height: 45px;
+    flex: none;
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--gold-d);
+}
+
+.go ul li strong {
+    display: block;
+    font-size: 15px;
+    line-height: 22px;
+    color: var(--gold-l);
 }
 
 .go ul li span {
-    color: #f0e6d2;
-    font-weight: bold;
+    display: block;
+    font-size: 13px;
+    line-height: 20px;
+}
+
+.go ul li a:hover {
+    border-color: var(--gold);
+}
+
+.go ul li a:hover::after {
+    color: var(--gold);
 }
 
 /* =========================
    footer
 ========================= */
-footer {
+#footer {
     display: flex;
-    align-items: center;
-    gap: 40px;
-    padding: 30px 0 40px;
-    border-top: 1px solid #333;
-    font-size: 14px;
+    gap: 56px;
+    padding: 40px 0 56px;
+    border-top: 1px solid var(--line);
+    font-size: 13px;
 }
 
-.flogo {
-    color: #f0e6d2;
-    font-size: 18px;
-    font-weight: bold;
+#footer .flogo {
+    font-family: "Cinzel", serif;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--gold-l);
 }
 
 .fmenu {
     display: flex;
-    gap: 10px;
-    margin-bottom: 5px;
+    gap: 22px;
+    margin-bottom: 10px;
 }
 
-.fmenu li {
-    padding-right: 10px;
-    border-right: 1px solid #a09b8c;
+.fmenu a {
+    color: var(--gold-l);
+    transition: color 0.2s;
 }
 
-.fmenu li:last-child {
-    border: none;
+.fmenu a:hover {
+    color: var(--gold);
 }
 
-.fcopy {
+.fcopy,
+.riot {
     color: #5b5a56;
-    line-height: 1.6;
 }
 
 /* =========================
-   popup
+   popup (공통)
 ========================= */
 .popup {
     display: none;
     position: fixed;
-    top: 0;
-    left: 0;
+    inset: 0;
     z-index: 100;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(1, 10, 19, 0.85);
 }
 
 .popcon {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
     width: 640px;
-    background: #0a1428;
-    border: 1px solid #c8aa6e;
+    border: 1px solid var(--gold-d);
+    background: var(--panel);
+    transform: translate(-50%, -50%);
 }
 
 .popcon .img img {
@@ -433,120 +587,34 @@ footer {
 }
 
 .popcon .text {
-    padding: 25px 30px 30px;
+    padding: 28px 32px 32px;
 }
 
-.popcon .label {
-    margin-bottom: 5px;
-    color: #c8aa6e;
-    font-size: 14px;
-}
-
-.popcon h2 {
-    color: #f0e6d2;
+.popcon .text h2 {
     font-size: 24px;
+    font-weight: 700;
+    line-height: 1.35;
+    color: var(--gold-l);
 }
 
 .popcon .desc {
-    margin-top: 10px;
-    line-height: 1.6;
+    margin-top: 12px;
 }
 
 .popcon .close button {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 14px;
+    right: 14px;
+    z-index: 1;
     width: 36px;
     height: 36px;
-    background: rgba(0, 0, 0, 0.7);
-    border: 1px solid #c8aa6e;
-    color: #f0e6d2;
+    border: 1px solid var(--gold-d);
+    background: rgba(1, 10, 19, 0.8);
+    color: var(--gold-l);
     font-size: 16px;
+    transition: border-color 0.2s;
 }
 
-/* =========================
-   champion 페이지
-========================= */
-.title {
-    padding: 50px 0 20px;
-}
-
-.title h2 {
-    margin-bottom: 10px;
-    color: #f0e6d2;
-    font-size: 32px;
-}
-
-/* 라인 버튼 */
-.lane {
-    display: flex;
-    gap: 10px;
-}
-
-.lane button {
-    padding: 8px 25px;
-    background: #0a1428;
-    border: 1px solid #333;
-    color: #a09b8c;
-}
-
-.lane button:hover,
-.lane button.on {
-    background: #c8aa6e;
-    color: #010a13;
-    font-weight: bold;
-}
-
-/* 챔피언 카드 (한 줄에 4개 = 라인 하나) */
-.champ ul {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    margin: 30px 0 60px;
-}
-
-.champ ul li {
-    width: 285px;
-}
-
-.champ ul li a {
-    display: block;
-    padding: 25px 10px;
-    background: #0a1428;
-    border: 1px solid #333;
-    text-align: center;
-}
-
-.champ ul li a:hover {
-    border-color: #c8aa6e;
-}
-
-.champ ul li img {
-    width: 90px;
-    height: 90px;
-    border: 2px solid #c8aa6e;
-    border-radius: 50%;
-}
-
-.champ ul li strong {
-    display: block;
-    margin-top: 12px;
-    color: #f0e6d2;
-    font-size: 20px;
-}
-
-.champ ul li em {
-    display: block;
-    margin-top: 4px;
-    font-style: normal;
-    font-size: 14px;
-}
-
-.champ ul li span {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 2px 10px;
-    border: 1px solid #785a28;
-    color: #c8aa6e;
-    font-size: 13px;
+.popcon .close button:hover {
+    border-color: var(--gold);
 }
